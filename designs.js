@@ -15,12 +15,12 @@ function makeGrid() {
     pixelCanvasGrid.innerHTML = '';
     // Loop through the input value for height and create equivalent rows
     for (var h = 1; h <= gridHeight.value; h++) {
-        var row = document.createElement('tr');
-        pixelCanvasGrid.appendChild(row);
+        let tableRow = document.createElement('tr');
+        pixelCanvasGrid.appendChild(tableRow);
         // then make cells for each row
         for (var c = 1; c <= gridWidth.value; c++) {
-            var cell = document.createElement('td');
-            row.appendChild(cell);
+            let cell = document.createElement('td');
+            tableRow.appendChild(cell);
             //onclick, paint selected row by looping over 'td' to get the exact clicked 
             const cellToPaint = document.querySelectorAll('td');
             for (i = 0; i < cellToPaint.length; i++) {

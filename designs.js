@@ -1,40 +1,31 @@
 // Select color input
-const inputColor = document.querySelector('#colorPicker').value;
+const inputColor = document.querySelector('#colorPicker');
 
 // Select size input
-const gridHeight = document.querySelector('#inputHeight').value;
-const gridWidth = document.querySelector('#inputWidth').value;
+const gridHeight = document.querySelector('#inputHeight');
+const gridWidth = document.querySelector('#inputWidth');
 const sizePicker = document.querySelector('#sizePicker');
 
 // Selecting the canvas grid
 const pixelCanvasGrid = document.querySelector('#pixelCanvas');
-
-// Create event listener function that will be parsed as arguements
-// function paintCell(event) {
-//     event.target.style.backGroundColor = inputColor;
-//     return event;
-// }
 
 // A function that will handle the grid making
 function makeGrid() {
     // Resets inputs after each time submit button is clicked
     pixelCanvasGrid.innerHTML = '';
     // Loop through the input value for height and create equivalent rows
-    for (var h = 1; h <= gridHeight.length; h++) {
-        let tableRow = document.createElement('tr');
-        pixelCanvasGrid.appendChild(tableRow);
+    for (var h = 1; h <= gridHeight.value; h++) {
+        var row = document.createElement('tr');
+        pixelCanvasGrid.appendChild(row);
         // then make cells for each row
-        for (var c = 1; c <= gridWidth.length; c++) {
-            let cell = document.createElement('td');
-            tableRow.appendChild(cell);
-            /*
-            onclick, paint selected row by looping over 'td' 
-            to get the exact clicked 
-            */
-            cellToPaint = document.querySelectorAll('td');
-            for (var i = 0; i <= cellToPaint.length; i++) {
+        for (var c = 1; c <= gridWidth.value; c++) {
+            var cell = document.createElement('td');
+            row.appendChild(cell);
+            //onclick, paint selected row by looping over 'td' to get the exact clicked 
+            const cellToPaint = document.querySelectorAll('td');
+            for (i = 0; i < cellToPaint.length; i++) {
                 cellToPaint[i].addEventListener('click', function (event) {
-                    event.target.style.backGroundColor = inputColor;
+                    event.target.style.backgroundColor = inputColor.value;
                 });
             };
         };

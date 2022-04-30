@@ -37,5 +37,6 @@ function makeGrid() {
 sizePicker.addEventListener('submit', function (evt) {
     //This will prevent the form from reloading every time the page is refreshed.
     evt.preventDefault();
+    // calling makeGrid()
     makeGrid();
 });
